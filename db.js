@@ -3,19 +3,20 @@
 import { Client } from "pg";
 import { getDatabaseUri } from "./config";
 
-let DB_URI;
+let db;
 
-if (process.env.NODE_ENV === "test") {
-  DB_URI = "postgresql:///goals_test";
-} else if (process.env.NODE_ENV === "development") {
-  DB_URI = "postgresql:///goals";
+if (process.env.NODE_ENV === "production") {
+  db = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  });
 } else {
-  DB_URI = process.env.DB_URI;
+  db = new Client({
+    connectionString: getDatabaseUri(),
+  });
 }
-
-const db = new Client({
-  connectionString: DB_URI,
-});
 
 db.connect();
 
