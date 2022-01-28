@@ -2,15 +2,10 @@
   "name": "goals-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "express": "^4.17.2"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  },
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/cwaymeyer/goals-backend/issues"
   },
-  "homepage": "https://github.com/cwaymeyer/goals-backend#readme"
+  "homepage": "https://github.com/cwaymeyer/goals-backend#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "pg": "^8.7.1"
+  }
 }
