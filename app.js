@@ -2,7 +2,7 @@
 
 import express from "express";
 
-import { NotFoundError } from "./expressError";
+import { NotFoundError } from "./expressError.js";
 
 const app = express();
 
