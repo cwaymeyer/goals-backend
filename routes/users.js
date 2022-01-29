@@ -1,6 +1,6 @@
 "use strict";
 
-import express, { Router } from "express";
+import express from "express";
 import User from "../models/user";
 
 const router = express.Router();

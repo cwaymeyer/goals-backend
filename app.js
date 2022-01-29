@@ -4,10 +4,12 @@ import express from "express";
 
 import { NotFoundError } from "./expressError.js";
 
-const usersRoutes = require("./routes/users.js");
+import authRoutes from "./routes/auth.js";
+import usersRoutes from "./routes/users.js";
 
 const app = express();
 
+app.use("auth", authRoutes);
 app.use("/users", usersRoutes);
 
 // Handle 404 errors
