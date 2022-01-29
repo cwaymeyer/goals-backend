@@ -4,7 +4,11 @@ import express from "express";
 
 import { NotFoundError } from "./expressError.js";
 
+const usersRoutes = require("./routes/users.js");
+
 const app = express();
+
+app.use("/users", usersRoutes);
 
 // Handle 404 errors
 app.use(function (req, res, next) {
