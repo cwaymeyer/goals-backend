@@ -5,7 +5,9 @@
 // import dotenv from "dotenv";
 // dotenv.config();
 
-const SECRET_KEY = process.env.SECRET_KEY;
+import "colors";
+
+const SECRET_KEY = process.env.SECRET_KEY || "secret";
 const PORT = process.env.PORT || 3001;
 
 function getDatabaseUri() {
@@ -15,5 +17,9 @@ function getDatabaseUri() {
 }
 
 const BCRYPT_WORK_FACTOR = process.env.NODE_ENV === "test" ? 1 : 12;
+
+console.log("PORT: ".magenta.bold, PORT);
+console.log("DATABASE: ".magenta.bold, getDatabaseUri());
+console.log("---");
 
 export { SECRET_KEY, PORT, BCRYPT_WORK_FACTOR, getDatabaseUri };

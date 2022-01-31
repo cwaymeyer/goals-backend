@@ -1,7 +1,9 @@
 "use strict";
 
-import { Client } from "pg";
-import { getDatabaseUri } from "./config";
+import pkg from "pg";
+import { getDatabaseUri } from "./config.js";
+
+const { Client } = pkg;
 
 let db;
 

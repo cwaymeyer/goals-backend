@@ -1,7 +1,7 @@
 CREATE TABLE users (
     username VARCHAR(25) PRIMARY KEY,
     password TEXT NOT NULL,
-    full_name VARCHAR(50) NOT NULL,
+    full_name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE goals (

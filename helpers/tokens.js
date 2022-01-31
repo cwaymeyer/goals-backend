@@ -1,10 +1,10 @@
 import jwt from "jsonwebtoken";
-import { SECRET_KEY } from "../config";
+import { SECRET_KEY } from "../config.js";
 
 /** return signed JWT from user data */
 
 function createToken(user) {
-  const payload = {
+  let payload = {
     username: user.username,
   };
 

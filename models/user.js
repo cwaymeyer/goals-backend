@@ -1,13 +1,13 @@
 "use strict";
 
-import db from "../db";
+import db from "../db.js";
 import bcrypt from "bcrypt";
 import {
   NotFoundError,
   BadRequestError,
   UnauthorizedError,
-} from "../expressError";
-import { BCRYPT_WORK_FACTOR } from "../config";
+} from "../expressError.js";
+import { BCRYPT_WORK_FACTOR } from "../config.js";
 
 class User {
   /** Authenticate user with username and password
@@ -46,7 +46,7 @@ class User {
     );
 
     if (duplicateCheck.rows[0]) {
-      throw new BadRequestError("Username already exists");
+      throw new BadRequestError(`Username ${username} already exists`);
     }
 
     const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
@@ -97,3 +97,5 @@ class User {
     if (!user) throw new NotFoundError(`User ${username} not found`);
   }
 }
+
+export default User;

@@ -1,8 +1,8 @@
 "use strict";
 
 import express from "express";
-import User from "../models/user";
-import { createToken } from "../helpers/auth";
+import User from "../models/user.js";
+import createToken from "../helpers/tokens.js";
 
 const router = express.Router();
 
@@ -31,7 +31,9 @@ router.post("/token", async (req, res, next) => {
 
 router.post("/register", async (req, res, next) => {
   try {
-    const newUser = await User.register({ ...req.body });
+    console.log(req.body);
+    const { username, password, full_name } = req.body;
+    const newUser = await User.register({ username, password, full_name });
     const token = createToken(newUser);
     return res.status(201).json({ token });
   } catch (err) {

@@ -1,7 +1,6 @@
 "use strict";
 
 import express from "express";
-
 import { NotFoundError } from "./expressError.js";
 
 import authRoutes from "./routes/auth.js";
@@ -9,7 +8,9 @@ import usersRoutes from "./routes/users.js";
 
 const app = express();
 
-app.use("auth", authRoutes);
+app.use(express.json());
+
+app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 
 // Handle 404 errors
