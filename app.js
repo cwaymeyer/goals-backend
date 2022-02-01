@@ -5,6 +5,7 @@ import { NotFoundError } from "./expressError.js";
 
 import authRoutes from "./routes/auth.js";
 import usersRoutes from "./routes/users.js";
+import goalsRoutes from "./routes/goals.js";
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
+app.use("/goals", goalsRoutes);
 
 // Handle 404 errors
 app.use(function (req, res, next) {

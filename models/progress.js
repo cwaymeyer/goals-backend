@@ -1,6 +1,7 @@
 "use strict";
 
 import db from "../db.js";
+import { NotFoundError } from "../expressError.js";
 
 class Progress {
   /** Create a workout (from data) and add to db

@@ -5,7 +5,10 @@ import User from "../models/user.js";
 
 const router = express.Router();
 
-/** GET /[username] => { user } */
+/** GET /[username] => { user }
+ *
+ * returns { id, username, email, goals }
+ */
 
 router.get("/:username", async (req, res, next) => {
   try {

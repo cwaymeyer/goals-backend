@@ -75,8 +75,8 @@ class User {
 
     if (!user) throw new NotFoundError(`User ${username} not found`);
 
-    const goalRes = await db.query(`SELECT * FROM goals WHERE user_id = $1`, [
-      user.id,
+    const goalRes = await db.query(`SELECT * FROM goals WHERE username = $1`, [
+      username,
     ]);
 
     user.goals = goalRes.rows;

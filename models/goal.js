@@ -1,6 +1,7 @@
 "use strict";
 
 import db from "../db.js";
+import { NotFoundError } from "../expressError.js";
 
 class Goal {
   /** Create a goal (from data) and add to db
@@ -39,6 +40,13 @@ class Goal {
     const goal = result.rows[0];
 
     if (!goal) throw new NotFoundError(`Goal (id ${id}) not found`);
+
+    const progressRes = await db.query(
+      `SELECT * FROM progress WHERE goal_id = $1`,
+      [goal.id]
+    );
+
+    goal.progress = progressRes.rows;
 
     return goal;
   }
