@@ -7,9 +7,9 @@ const router = express.Router();
 
 /** POST / { goal } => { goal }
  *
- * goal must include { name, username, target, timeline, start_date, end_date }
+ * goal must include { name, username, start_weight, target_weight, timeline, start_date, end_date }
  *
- * returns { id, name, username, target, timeline, start_date, end_date }
+ * returns { id, name, username, start_weight, target_weight, timeline, start_date, end_date }
  */
 
 router.post("/", async (req, res, next) => {

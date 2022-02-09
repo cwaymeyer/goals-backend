@@ -13,11 +13,12 @@ class Goal {
 
   static async create(data) {
     const result = await db.query(
-      `INSERT INTO goals(name, username, target, timeline, start_date, end_date) VALUES($1, $2, $3, $4, $5, $6) RETURNING *`,
+      `INSERT INTO goals(name, username, start_weight, target_weight, timeline, start_date, end_date) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
       [
         data.name,
         data.username,
-        data.target,
+        data.start_weight,
+        data.target_weight,
         data.timeline,
         data.start_date,
         data.end_date,

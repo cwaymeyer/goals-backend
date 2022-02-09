@@ -31,7 +31,7 @@ router.post("/token", async (req, res, next) => {
 
 router.post("/register", async (req, res, next) => {
   try {
-    const { username, password, full_name } = req.body;
+    const { full_name, username, password } = req.body;
     const newUser = await User.register({ username, password, full_name });
     const token = createToken(newUser);
     return res.status(201).json({ token });

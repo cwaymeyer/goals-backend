@@ -1,0 +1,25 @@
+[
+  {
+    "id": "6202801d5114bf403b72005c",
+    "items": [
+      {
+        "qty": 2,
+        "title": "Water Bottle",
+        "price": 1099,
+        "id": 1234,
+        "url": "https://example.com/1234/water_bottle",
+        "images": {
+          "full": "https://www.camelbak.com/dw/image/v2/BDBJ_PRD/on/demandware.static/-/Sites-camelbak-master-catalog/default/dwaad1eff8/images/large/R20_ChuteMagVSS20oz_A_Nav.jpg?sw=590&sh=650&sm=fit",
+          "thumb": "https://www.camelbak.com/dw/image/v2/BDBJ_PRD/on/demandware.static/-/Sites-camelbak-master-catalog/default/dwaad1eff8/images/large/R20_ChuteMagVSS20oz_A_Nav.jpg?sw=590&sh=650&sm=fit"
+        },
+        "tags": ["type-bottle", "price-10-15", "size-medium", "color-blue"],
+        "vars": { "color": "blue", "material": "stainless steel" }
+      }
+    ],
+    "price": 2198,
+    "qty": 2,
+    "time": 1644331037,
+    "unique_id": "6202801d5114bf403b72005c",
+    "chnl": "online"
+  }
+]

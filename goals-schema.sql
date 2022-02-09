@@ -8,7 +8,8 @@ CREATE TABLE goals (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     username VARCHAR(25) REFERENCES users(username) ON DELETE CASCADE,
-    target INTEGER,
+    start_weight INTEGER,
+    target_weight INTEGER,
     timeline INTEGER,
     start_date DATE,
     end_date DATE
