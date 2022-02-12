@@ -18,7 +18,7 @@ CREATE TABLE goals (
 CREATE TABLE progress (
     id SERIAL PRIMARY KEY,
     goal_id INTEGER REFERENCES goals(id) ON DELETE CASCADE,
-    reps INTEGER,
     weight INTEGER,
-    date DATE
+    reps INTEGER,
+    date BIGINT
 );

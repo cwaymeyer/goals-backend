@@ -2,6 +2,7 @@
 
 import express from "express";
 import Goal from "../models/goal.js";
+import Progress from "../models/progress.js";
 
 const router = express.Router();
 
@@ -35,12 +36,28 @@ router.get("/:goal_id", async (req, res, next) => {
   }
 });
 
-/** DELETE /[username] => { deleted: [username] } */
+/** DELETE /[goal_id] => { deleted: [goal_id] } */
 
 router.delete("/:goal_id", async (req, res, next) => {
   try {
     await Goal.remove(req.params.goal_id);
     return res.json({ deleted: [req.params.goal_id] });
+  } catch (err) {
+    return next(err);
+  }
+});
+
+/** POST /progress => {progress}
+ *
+ * progress must include { date, weight, reps }
+ *
+ * returns { id, user_id, date, weight, reps }
+ */
+
+router.post("/progress", async (req, res, next) => {
+  try {
+    await Progress.create(req.body);
+    return res.status(201).json({ progress: req.body });
   } catch (err) {
     return next(err);
   }

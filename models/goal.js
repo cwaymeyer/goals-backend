@@ -32,7 +32,7 @@ class Goal {
 
   /** Given goal id, return data about goal
    *
-   * Throws NotFoundError is goal not found
+   * Throws NotFoundError if goal not found
    */
 
   static async get(id) {
