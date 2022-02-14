@@ -11,8 +11,8 @@ CREATE TABLE goals (
     start_weight INTEGER,
     target_weight INTEGER,
     timeline INTEGER,
-    start_date DATE,
-    end_date DATE
+    start_date BIGINT,
+    end_date BIGINT
 );
 
 CREATE TABLE progress (
