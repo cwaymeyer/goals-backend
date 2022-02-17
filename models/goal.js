@@ -42,12 +42,29 @@ class Goal {
 
     if (!goal) throw new NotFoundError(`Goal (id ${id}) not found`);
 
+    // all progress
     const progressRes = await db.query(
       `SELECT * FROM progress WHERE goal_id = $1`,
       [goal.id]
     );
 
     goal.progress = progressRes.rows;
+
+    // first progress
+    const startingProgress = await db.query(
+      `SELECT orm, date FROM progress WHERE goal_id = $1 ORDER BY date ASC LIMIT 1`,
+      [id]
+    );
+
+    goal.starting_progress = startingProgress.rows[0];
+
+    // last progress
+    const latestProgress = await db.query(
+      `SELECT orm, date FROM progress WHERE goal_id = $1 ORDER BY date DESC LIMIT 1`,
+      [id]
+    );
+
+    goal.latest_progress = latestProgress.rows[0];
 
     return goal;
   }

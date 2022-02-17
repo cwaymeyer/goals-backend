@@ -20,5 +20,6 @@ CREATE TABLE progress (
     goal_id INTEGER REFERENCES goals(id) ON DELETE CASCADE,
     weight INTEGER,
     reps INTEGER,
+    orm DECIMAL,
     date BIGINT
 );

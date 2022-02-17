@@ -47,7 +47,7 @@ router.delete("/:goal_id", async (req, res, next) => {
   }
 });
 
-/** POST /progress => {progress}
+/** POST /progress => { progress }
  *
  * progress must include { date, weight, reps }
  *
@@ -58,6 +58,28 @@ router.post("/progress", async (req, res, next) => {
   try {
     await Progress.create(req.body);
     return res.status(201).json({ progress: req.body });
+  } catch (err) {
+    return next(err);
+  }
+});
+
+/** GET /progress/[goal_id]/starting => { progress } */
+
+router.get("/progress/:goal_id/starting", async (req, res, next) => {
+  try {
+    await Progress.getStarting(req.params.goal_id);
+    return res.json({ progress: req.body });
+  } catch (err) {
+    return next(err);
+  }
+});
+
+/** GET /progress/[goal_id]/latest => { progress } */
+
+router.get("/progress/:goal_id/latest", async (req, res, next) => {
+  try {
+    await Progress.getLatest(req.params.goal_id);
+    return res.json({ progress: req.body });
   } catch (err) {
     return next(err);
   }

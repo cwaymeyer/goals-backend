@@ -13,8 +13,8 @@ class Progress {
 
   static async create(data) {
     const result = await db.query(
-      `INSERT INTO progress(goal_id, weight, reps, date) VALUES ($1, $2, $3, $4) RETURNING *`,
-      [data.goal_id, data.weight, data.reps, data.date]
+      `INSERT INTO progress(goal_id, weight, reps, orm, date) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+      [data.goal_id, data.weight, data.reps, data.orm, data.date]
     );
 
     const progress = result.rows[0];
