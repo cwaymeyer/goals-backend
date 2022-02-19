@@ -39,7 +39,7 @@ class User {
    * Throws BadRequest Error on duplicate username
    */
 
-  static async register({ username, password, full_name }) {
+  static async register({ username, password }) {
     const duplicateCheck = await db.query(
       `SELECT username FROM users WHERE username = $1`,
       [username]
@@ -52,8 +52,8 @@ class User {
     const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
 
     const result = await db.query(
-      `INSERT INTO users (username, password, full_name) VALUES ($1, $2, $3) RETURNING *`,
-      [username, hashedPassword, full_name]
+      `INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *`,
+      [username, hashedPassword]
     );
 
     const user = result.rows[0];
