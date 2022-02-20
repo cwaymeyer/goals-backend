@@ -49,6 +49,10 @@ class User {
       throw new BadRequestError(`Username ${username} already exists`);
     }
 
+    if (!username || !password) {
+      throw new BadRequestError("Field cannot be left blank");
+    }
+
     const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
 
     const result = await db.query(

@@ -1,7 +1,7 @@
 "use strict";
 
 import db from "../db.js";
-import { NotFoundError } from "../expressError.js";
+import { NotFoundError, BadRequestError } from "../expressError.js";
 
 class Progress {
   /** Create a workout (from data) and add to db
@@ -12,6 +12,10 @@ class Progress {
    */
 
   static async create(data) {
+    if (!data.weight || !data.reps || !data.date) {
+      throw new BadRequestError("Field cannot be left blank");
+    }
+
     const result = await db.query(
       `INSERT INTO progress(goal_id, weight, reps, orm, date) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
       [data.goal_id, data.weight, data.reps, data.orm, data.date]
