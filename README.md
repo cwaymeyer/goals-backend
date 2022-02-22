@@ -17,13 +17,20 @@ JavaScript / Node / Express / PostgreSQL
 - A goal will have a target weight to hit, and a desired timeline (3, 6, 9, or 12 months) to hit that weight.
 - Recorded workouts are saved in the "progress" table.
 - In all cases, dates are saved as [UNIX time](https://unixtime.org/).
-  <br />
-  > <b>Goals table</b>
-  - <i>username</i> is added on the front end.
-  - <i>start_weight</i> is added on the front end based on the first inputed progress row.
-  - <i>start_date</i> and <i>end_date</i> are automatically calculated through the JS Date object on the front end.
-    > <b>Progress table</b>
-  - <i>goal_id</i> and <i>orm</i> are not inputed, but are calculated on the front end.
+
+<br />
+
+> <b>Goals table</b>
+
+- <i>username</i> is added on the front end.
+- <i>start_weight</i> is added on the front end based on the first inputed progress row.
+- <i>start_date</i> and <i>end_date</i> are automatically calculated through the JS Date object on the front end.
+
+<br />
+
+> <b>Progress table</b>
+
+- <i>goal_id</i> and <i>orm</i> are not inputed, but are calculated on the front end.
 
 ### Database schema
 
