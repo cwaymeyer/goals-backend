@@ -8,7 +8,7 @@ class Goal {
    *
    * data should be { name, username, target, timeline, start_date, end_date }
    *
-   * returns { id, name, username, target, timeline, start_date, end_date }
+   * returns { id, name, username, target_weight, timeline, start_date, end_date }
    */
 
   static async create(data) {

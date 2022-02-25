@@ -1,10 +1,5 @@
 "use strict";
 
-// import("dotenv").config();
-//
-// import dotenv from "dotenv";
-// dotenv.config();
-
 import "colors";
 
 const SECRET_KEY = process.env.SECRET_KEY || "secret";
