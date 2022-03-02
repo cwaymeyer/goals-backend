@@ -16,6 +16,14 @@ class Progress {
       throw new BadRequestError("Field cannot be left blank");
     }
 
+    if (!+data.weight) {
+      throw new BadRequestError("Weight must be a number");
+    }
+
+    if (!+data.reps) {
+      throw new BadRequestError("Reps must be a number");
+    }
+
     const result = await db.query(
       `INSERT INTO progress(goal_id, weight, reps, orm, date) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
       [data.goal_id, data.weight, data.reps, data.orm, data.date]

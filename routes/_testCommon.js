@@ -9,6 +9,7 @@ import createToken from "../helpers/tokens";
 async function commonBeforeAll() {
   await db.query("DELETE FROM users");
   await db.query("DELETE FROM goals");
+  await db.query("DELETE FROM progress");
 
   await User.register({
     username: "testuser",

@@ -16,6 +16,10 @@ class Goal {
       throw new BadRequestError("Field cannot be left blank");
     }
 
+    if (!+data.target_weight) {
+      throw new BadRequestError("Target weight must be a number");
+    }
+
     const result = await db.query(
       `INSERT INTO goals(name, username, start_weight, target_weight, timeline, start_date, end_date) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
       [
