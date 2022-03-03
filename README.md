@@ -5,11 +5,18 @@ Frontend found [here](https://github.com/cwaymeyer/goals-react-frontend).
 
 JavaScript / Node / Express / PostgreSQL
 
-##### To run
+## Get started (dev💻)
+- `git clone https://github.com/cwaymeyer/goals-backend.git` *(clone repo)*
+- `cd goals-backend` *(navigate to directory)*
+- `npm install` *(install dependencies)*
+- `createdb goals` *(create database)*
+- `createdb goals_test` *(create database for testing)*
+- `node server.js` *(starts the server on port 3001)*
 
-- `node server.js` (starts the server on port 3001)
+### To test
+- `npm test` *(runs all tests - can specify folder/file)*
 
-### Functionality
+## Functionality
 
 <b>Goals is a workout progress tracker application.</b>
 
@@ -32,6 +39,6 @@ JavaScript / Node / Express / PostgreSQL
 
 - <i>goal_id</i> and <i>orm</i> are not inputed, but are calculated on the front end.
 
-### Database schema
+## Database schema
 
 <img src="./public/db_diagram.jpg" width="700"/>
